@@ -49,10 +49,24 @@ def insert_list(value):
     return empty
 
 def delete(value):
-    pass
+    print('delete')
+    for i in list:
+        if value[0] == i[0] and value[1] == i[1]:
+            list.remove(i)
+            return 0
+    return ValueError
 
 def edit(value):
-    pass
+    print('edit')
+    for i in range(len(list)):
+        print(value[0])
+        print(list[i][0])
+        if value[0] == list[i][0] and value[0] == list[i][0]:
+            print("a")
+            print(list[i])
+            list[i] = insert_list(value[2:][0])
+            return 0
+    return ValueError
 
 def save_list(value):
     empty = []
@@ -197,4 +211,3 @@ while True:
     except:
         print("Invalid Value")
         pass
-
