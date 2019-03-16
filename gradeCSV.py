@@ -103,8 +103,7 @@ def show_grade(grade):
               " score {}, total score {}, grade {}, total grade {}"
               .format(i[0], i[1], i[2], i[3], i[4],
                       str(i[3]/i[1])[:4], str(i[4]/i[2])[:4]))
-        return 0
-    return ValueError
+
 
 ##########################################################
 
