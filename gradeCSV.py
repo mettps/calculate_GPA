@@ -84,14 +84,17 @@ def save_list(value):
 
 def save(value):
     file = open('{}.csv'.format(value[0][0]), 'w', encoding="utf-8")
-    year = list[0][0]
-    for i in list:
-        if i[0] != year and year != list[0][0]:
+    file.write(','.join(list[0]))
+    file.write('\n')
+    year = list[1][0]
+    for i in list[1:]:
+        print(i)
+        if i[0] != year:
             for j in value[0][1]:
                 if j[0] == year:
                     file.write(','.join(map(str, save_list(j))))
                     file.write('\n')
-        file.write(','.join(i))
+        file.write(','.join(map(str, i)))
         file.write('\n')
         year = i[0]
     file.write(','.join(map(str, save_list(value[0][1][-1]))))
