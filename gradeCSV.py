@@ -3,6 +3,9 @@ list = []
 ##########################################################
 
 def open_file(filename):
+    """
+    Open file and append subject to list
+    """
     import csv
     file = open(filename, "rt", encoding="utf8")
     fileCSV = csv.reader(file)
@@ -11,6 +14,9 @@ def open_file(filename):
             list.append(data)
 
 def grade_number(Grade):
+    """
+    Change grade to number
+    """
     grade = {'A' : 4,
              'B+' : 3.5, 'B' : 3,
              'C+' : 2.5, 'C' : 2,
@@ -18,6 +24,9 @@ def grade_number(Grade):
     return grade[Grade]
 
 def sub_year(Year):
+    """
+    2559/1 -> 25591
+    """
     if type(Year) == str and len(Year) == 6:
         return int(Year[0:4]+Year[-1])
     else:
@@ -26,6 +35,9 @@ def sub_year(Year):
 ##########################################################
 
 def insert(value):
+    """
+    insert subject to list
+    """
     index = 1
     if int(value[3]) == 1 or int(value[3]) == 3:
         for i in list[1:]:
@@ -39,6 +51,10 @@ def insert(value):
         return ValueError
 
 def insert_list(value):
+    """
+    (year, code, name, weight, section, grade)
+    -> [year, code, name, weight, section, grade, gradeNumber,,,,,,,,,]
+    """
     print(value)
     empty = []
     for i in range(0,6):
@@ -49,7 +65,9 @@ def insert_list(value):
     return empty
 
 def delete(value):
-    print('delete')
+    """
+    remove subject from list
+    """
     for i in list:
         if value[0] == i[0] and value[1] == i[1]:
             list.remove(i)
@@ -57,7 +75,9 @@ def delete(value):
     return ValueError
 
 def edit(value):
-    print('edit')
+    """
+    edit subject in list
+    """
     for i in range(len(list)):
         print(value[0])
         print(list[i][0])
@@ -69,8 +89,11 @@ def edit(value):
     return ValueError
 
 def save_list(value):
+    """
+    (year, weight, totalweight, score, totalscore)
+    -> [year,,,,,,,weight,totalweight,score,totalscore,grade,totalgrade,,,]
+    """
     empty = []
-    print(value)
     empty.append(value[0])
     for i in range(0, 6):
         empty.append('')
@@ -83,6 +106,9 @@ def save_list(value):
     return empty
 
 def save(value):
+    """
+    save data in list to csv file
+    """
     file = open('{}.csv'.format(value[0][0]), 'w', encoding="utf-8")
     file.write(','.join(list[0]))
     file.write('\n')
@@ -101,6 +127,9 @@ def save(value):
     file.close()
 
 def show_grade(grade):
+    """
+    show grade
+    """
     for i in grade:
         print("{}, weight {}, total weight {},"
               " score {}, total score {}, grade {}, total grade {}"
