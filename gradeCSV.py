@@ -55,7 +55,6 @@ def insert_list(value):
     (year, code, name, weight, section, grade)
     -> [year, code, name, weight, section, grade, gradeNumber,,,,,,,,,]
     """
-    print(value)
     empty = []
     for i in range(0,6):
         empty.append(value[i])
@@ -79,11 +78,7 @@ def edit(value):
     edit subject in list
     """
     for i in range(len(list)):
-        print(value[0])
-        print(list[i][0])
         if value[0] == list[i][0] and value[0] == list[i][0]:
-            print("a")
-            print(list[i])
             list[i] = insert_list(value[2:][0])
             return 0
     return ValueError
@@ -114,7 +109,6 @@ def save(value):
     file.write('\n')
     year = list[1][0]
     for i in list[1:]:
-        print(i)
         if i[0] != year:
             for j in value[0][1]:
                 if j[0] == year:
